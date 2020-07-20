@@ -1,62 +1,14 @@
 <template>
   <div class="icons">
     <swiper :options="swiperOption">
-        <swiper-slide>
+        <swiper-slide v-for="(page,index) of pages" :key="index">
           <div
-            class="icon">
+            class="icon"
+            v-for="item of page" :key="item.id">
             <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png" alt="/1"/>
+              <img class="icon-img-content" :src="item.imgUrl" alt="/1"/>
             </div>
-            <p class="icon-desc">景点门票</p>
-          </div>
-          <div
-            class="icon">
-            <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png" alt="/1"/>
-            </div>
-            <p class="icon-desc">景点门票</p>
-          </div>
-          <div
-            class="icon">
-            <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png" alt="/1"/>
-            </div>
-            <p class="icon-desc">景点门票</p>
-          </div>
-          <div
-            class="icon">
-            <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png" alt="/1"/>
-            </div>
-            <p class="icon-desc">景点门票</p>
-          </div>
-          <div
-            class="icon">
-            <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png" alt="/1"/>
-            </div>
-            <p class="icon-desc">景点门票</p>
-          </div>
-          <div
-            class="icon">
-            <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png" alt="/1"/>
-            </div>
-            <p class="icon-desc">景点门票</p>
-          </div>
-          <div
-            class="icon">
-            <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png" alt="/1"/>
-            </div>
-            <p class="icon-desc">景点门票</p>
-          </div>
-          <div
-            class="icon">
-            <div class="icon-img">
-              <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png" alt="/1"/>
-            </div>
-            <p class="icon-desc">景点门票</p>
+            <p class="icon-desc">{{item.desc}}</p>
           </div>
         </swiper-slide>
     </swiper>
@@ -67,9 +19,25 @@
     import {swiper,swiperSlide} from 'vue-awesome-swiper'
     export default {
         name: "HomeIcon",
+        props: {
+          list: Array
+        },
         components: {
           swiperSlide,
           swiper
+        },
+        computed: {
+          pages(){
+            const pages = []
+            this.list.forEach((item,index) => {
+              const page = Math.floor(index / 8)
+              if (!pages[page]){
+                pages[page] = []
+              }
+              pages[page].push(item)
+            })
+            return pages
+          }
         },
         data () {
           return {

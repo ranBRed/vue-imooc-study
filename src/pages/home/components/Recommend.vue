@@ -2,19 +2,11 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item">
-        <img class="item-img" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg" alt="/"/>
+      <li class="item" v-for="item of list" :key="item.id">
+        <img class="item-img" :src="item.imgUrl" :alt="'/' + item.id"/>
         <div class="item-info">
-          <p class="item-title">东方宫殿建筑代表，世界宫殿建筑典范</p>
-          <p class="item-desc">故宫</p>
-          <button class="item-button">查看详情</button>
-        </div>
-      </li>
-      <li class="item">
-        <img class="item-img" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg" alt="/"/>
-        <div class="item-info">
-          <p class="item-title">东方宫殿建筑代表，世界宫殿建筑典范</p>
-          <p class="item-desc">故宫</p>
+          <p class="item-title">{{item.desc}}</p>
+          <p class="item-desc">{{item.title}}</p>
           <button class="item-button">查看详情</button>
         </div>
       </li>
@@ -24,7 +16,15 @@
 
 <script>
     export default {
-        name: "HomeRecommend"
+        name: "HomeRecommend",
+        props: {
+          list: Array
+        },
+        data (){
+          return {
+
+          }
+        }
     }
 </script>
 
