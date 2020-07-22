@@ -34,7 +34,7 @@
     margin-top: .2rem
     line-height: .8rem
     background: #eeeeee
-    text-align: center
+    text-indent: .2rem
   .item
     overflow: hidden
     display: flex

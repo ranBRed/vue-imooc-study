@@ -24,15 +24,21 @@
           return {
             swiperOption: {
               pagination: '.swiper-pagination',
-              autoplay: 2000,
+              // autoplay: 1000,
+              autoplay: true,
+              speed:1000,
               loop: true
             }
           }
         },
         computed: {
           showSwiper () {
-            return this.list.length
+            return this.list.length > 0
           }
+        },
+        beforeUpdate() {
+          console.log('activated')
+          console.log(this.$data.swiperOption)
         }
     }
 </script>
