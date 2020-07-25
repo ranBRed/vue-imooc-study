@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6446151",
+      "name": "图片",
+      "font_class": "tianchongxing-",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
       "icon_id": "741980",
       "name": "择律-选择费用-倒三角形-反对",
       "font_class": "zelvxuanzefeiyongdaosanjiaoxingfandui",

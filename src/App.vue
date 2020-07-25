@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 <!--      与Detail进行匹配的组件都不会缓存下来-->
-    <keep-alive exclude="Home">
+    <keep-alive :exclude="['Detail','Home']">
       <router-view/>
     </keep-alive>
   </div>
